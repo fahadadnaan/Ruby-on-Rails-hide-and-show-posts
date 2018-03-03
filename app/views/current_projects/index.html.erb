@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Current Projects</h1>
+
+<% @current_projects.each do |current_project| %>
+<% unless current_project.Done%>
+<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success"><%= current_project.title %></div>
+  <div class="card-body text-success">
+    <p class="card-text"><%= current_project.body %></p>
+  </div>
+  <div class="card-footer bg-transparent border-success"><%= current_project.date %></div>
+</div>
+<%end%>
+<%end%>
+
+
+<br><br>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Date</th>
+      <th>Done</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @current_projects.each do |current_project| %>
+      <tr>
+        <td><%= current_project.title %></td>
+        <td><%= current_project.body %></td>
+        <td><%= current_project.date %></td>
+        <td><%= current_project.Done %></td>
+        <td><%= link_to 'Show', current_project %></td>
+        <td><%= link_to 'Edit', edit_current_project_path(current_project) %></td>
+        <td><%= link_to 'Destroy', current_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Current Project', new_current_project_path %>

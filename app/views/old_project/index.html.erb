@@ -1,0 +1,13 @@
+<h1>OldProject index</h1>
+<br><br>
+<% @current_projects.each do |current_project| %>
+<% unless !current_project.Done%>
+<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success"><%= current_project.title %></div>
+  <div class="card-body text-success">
+    <p class="card-text"><%= current_project.body %></p>
+  </div>
+  <div class="card-footer bg-transparent border-success"><%= current_project.date %></div>
+</div>
+<%end%>
+<%end%>
